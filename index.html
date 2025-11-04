@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasbor Penilaian Performa</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" type="image/svg+xml" href="Logo bpjs kecil.svg">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+</head>
+<body>
+
+    <header>
+        <h1><img src="Logo BPJS Color.svg" alt="Logo" class="header-logo"> Dasbor Penilaian Performa</h1>
+    </header>
+
+    <main>
+        <section class="controls">
+            <input type="text" id="searchInput" placeholder="Cari berdasarkan nama...">
+            <select id="penempatanFilter">
+                <option value="">Semua Penempatan</option>
+            </select>
+            <select id="gradeFilter">
+                <option value="">Semua Grade</option>
+            </select>
+        </section>
+
+        <section class="charts-container">
+            <div class="chart-box">
+                <h3>Top 5 Performa (Total Nilai)</h3>
+                <div class="bar-chart-wrapper">
+                    <canvas id="topPerformersChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-box pie-chart-container">
+                <h3>Distribusi Grade</h3>
+                <div class="pie-chart-wrapper">
+                    <canvas id="gradeDistributionChart"></canvas>
+                </div>
+                <div id="gradeLegend" class="chart-legend"></div>
+            </div>
+        </section>
+
+        <section class="data-table-container">
+            <h3>Data Lengkap Peserta</h3>
+            <div class="table-wrapper">
+                <table id="dataTable">
+                    <thead>
+                        </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="15" class="loading">Memuat data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
