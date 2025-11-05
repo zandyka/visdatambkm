@@ -243,13 +243,6 @@ tbody tr:hover {
         gap: 10px;
     }
     
-    /* * Buat chart jadi vertikal (menumpuk)
-     * persis seperti di gambar referensi Anda
-    */
-    .charts-container {
-        flex-direction: column;
-        gap: 15px; /* Jarak antar chart di HP */
-    }
     
     /* * Beri chart box ketinggian yang sedikit lebih
      * besar di HP agar legenda muat
@@ -273,3 +266,4 @@ tbody tr:hover {
         padding: 10px 8px;
     }
 }
+
