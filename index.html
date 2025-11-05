@@ -14,7 +14,7 @@
 <body>
 
     <header>
-        <h1><img src="Logo BPJS Color.svg" alt="Logo" class="header-logo"> Report Penilaian Performa</h1>
+        <h1><img src="Logo BPJS Color.svg" alt="Logo" class="header-logo"> Report Penilaian Performa Sementara</h1>
     </header>
 
     <main>
@@ -35,13 +35,21 @@
                     <canvas id="topPerformersChart"></canvas>
                 </div>
             </div>
+            
             <div class="chart-box pie-chart-container">
                 <h3>Distribusi Grade</h3>
-                <div class="pie-chart-wrapper">
-                    <canvas id="gradeDistributionChart"></canvas>
+                
+                <div class="pie-chart-content">
+                
+                    <div class="pie-chart-wrapper">
+                        <canvas id="gradeDistributionChart"></canvas>
+                    </div>
+                    
+                    <div id="gradeLegend" class="chart-legend"></div>
+                
                 </div>
-                <div id="gradeLegend" class="chart-legend"></div>
-            </div>
+                </div>
+            
         </section>
 
         <section class="data-table-container">
@@ -63,5 +71,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
