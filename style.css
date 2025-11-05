@@ -135,8 +135,8 @@ main {
 }
 
 .chart-legend li {
-    /* display: flex; Hapus */
-    /* justify-content: space-between; Hapus */
+    display: flex;
+    justify-content: space-between;
     padding: 4px 10px;
     border-radius: 4px;
 }
@@ -288,3 +288,4 @@ tbody tr:hover {
         padding: 10px 8px;
     }
 }
+
