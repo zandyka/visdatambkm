@@ -16,17 +16,15 @@ header {
 
 h1 {
     color: #005a9c;
-    /* Menyelaraskan item di dalam h1 (logo & teks) */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* BARU: CSS untuk logo di dalam header */
 .header-logo {
-    height: 1.2em; /* Tinggi logo relatif terhadap font h1 */
+    height: 1.2em;
     width: auto;
-    margin-right: 10px; /* Jarak antara logo dan teks */
+    margin-right: 10px;
 }
 
 h3 {
@@ -62,7 +60,7 @@ main {
 }
 
 .controls input[type="text"] {
-    flex-grow: 2; /* Membuat search bar lebih lebar */
+    flex-grow: 2;
 }
 
 /* Kontainer Grafik */
@@ -82,37 +80,33 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     height: 350px; 
     position: relative;
-    min-width: 0; /* Mencegah item flex meluber (overflow) */
+    min-width: 0;
 }
 
-/* Wrapper untuk Bar Chart (Performa) */
 .bar-chart-wrapper {
     position: relative;
-    height: 280px; /* Tinggi box 350px - padding - tinggi judul */
+    height: 280px;
     width: 100%;
 }
 
-/* Buat .chart-box khusus pie-chart jadi fleksibel */
 .chart-box.pie-chart-container {
     display: flex;
-    flex-direction: column; /* Susun judul, chart, dan legenda ke bawah */
+    flex-direction: column;
 }
 
-/* Wrapper untuk Pie Chart (Distribusi) */
 .pie-chart-wrapper {
-    width: 250px; /* Sedikit lebih kecil untuk memberi ruang legenda */
+    width: 250px;
     height: 250px;
     margin: 0 auto; 
     position: relative;
-    flex-shrink: 0; /* Jangan biarkan dia menciut */
+    flex-shrink: 0;
 }
 
-/* Keterangan (Legenda) Kustom */
 .chart-legend {
     padding: 10px 0 0 0;
     margin-top: 10px;
     border-top: 1px solid #eee;
-    overflow-y: auto; /* Bisa di-scroll jika grade terlalu banyak */
+    overflow-y: auto;
 }
 
 .chart-legend ul {
@@ -136,7 +130,6 @@ main {
 .chart-legend li strong {
     color: #005a9c;
 }
-
 
 /* Kontainer Tabel */
 .data-table-container {
@@ -162,15 +155,49 @@ th, td {
     padding: 12px 15px;
     border: 1px solid #e0e0e0;
     text-align: left;
+    max-width: 200px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-/* CSS Header Tabel Sederhana */
 thead {
     background-color: #005a9c;
     color: #fff;
-    position: sticky; /* Membuat header tabel 'menempel' saat di-scroll */
+    position: sticky;
     top: 0;
+}
+
+thead th {
+    max-width: 170px;
+    position: relative;
+}
+
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+th.sortable::after {
+    content: ' \2195';
+    opacity: 0.3;
+    font-size: 0.9em;
+    position: absolute;
+    right: 10px;
+}
+
+th.sortable:hover {
+    background-color: #004a80;
+}
+
+th.sort-asc::after {
+    content: ' \25B2';
+    opacity: 1;
+}
+
+th.sort-desc::after {
+    content: ' \25BC';
+    opacity: 1;
 }
 
 tbody tr:nth-child(even) {
@@ -186,4 +213,63 @@ tbody tr:hover {
     font-style: italic;
     color: #888;
     padding: 50px;
+}
+
+
+/* ========================================= */
+/* ===    TAMPILAN RESPONSIVE (HP)     === */
+/* ========================================= */
+
+/* Terapkan gaya ini jika lebar layar 768px atau kurang */
+@media (max-width: 768px) {
+
+    /* Kurangi padding utama di HP */
+    body {
+        padding: 10px;
+    }
+    
+    /* Kecilkan sedikit judul utama */
+    h1 {
+        font-size: 1.7em;
+        /* Pastikan logo dan teks muat jika nama panjang */
+        flex-wrap: wrap; 
+    }
+
+    /* * Buat filter controls jadi vertikal (menumpuk)
+     * persis seperti di gambar referensi Anda
+    */
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* * Buat chart jadi vertikal (menumpuk)
+     * persis seperti di gambar referensi Anda
+    */
+    .charts-container {
+        flex-direction: column;
+        gap: 15px; /* Jarak antar chart di HP */
+    }
+    
+    /* * Beri chart box ketinggian yang sedikit lebih
+     * besar di HP agar legenda muat
+    */
+    .chart-box {
+         height: 380px;
+    }
+
+    /* * Buat wrapper pie chart sedikit lebih besar 
+     * agar pas di layar HP
+    */
+    .pie-chart-wrapper {
+        width: 280px; 
+        height: 280px;
+    }
+
+    /* * Kurangi padding di sel tabel agar lebih banyak
+     * data muat di layar sebelum perlu scroll
+    */
+    th, td {
+        padding: 10px 8px;
+    }
 }
